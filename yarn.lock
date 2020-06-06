@@ -2912,6 +2912,11 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+ckeditor5-embed@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/ckeditor5-embed/-/ckeditor5-embed-1.0.7.tgz#7e53dd92574669d1807daa855a3aec21116cbc2a"
+  integrity sha512-8trpm+6+goVjU0uu5zRMAUIUOSnjqFiwCJo88GA7N5Sdc7qa12gQ/9cuHQ1QKkvD46b0HW092yvdeLRLeaZ+gA==
+
 class-utils@^0.3.5:
   version "0.3.6"
   resolved "https://registry.yarnpkg.com/class-utils/-/class-utils-0.3.6.tgz#f93369ae8b9a7ce02fd41faad0ca83033190c463"
