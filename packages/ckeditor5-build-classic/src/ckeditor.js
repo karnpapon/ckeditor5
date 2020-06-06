@@ -30,7 +30,13 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
-import Embed from 'ckeditor5-embed/src/embed';
+// import Embed from 'ckeditor5-embed/src/embed';
+import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor';
+
+// Simple plugin which loads the data processor.
+function Markdown( editor ) {
+	editor.data.processor = new GFMDataProcessor( editor.editing.view.document );
+}
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -54,8 +60,8 @@ ClassicEditor.builtinPlugins = [
 	Indent,
 	Link,
 	List,
+	Markdown,
 	MediaEmbed,
-	Embed,
 	Paragraph,
 	PasteFromOffice,
 	Table,
@@ -79,7 +85,6 @@ ClassicEditor.defaultConfig = {
 			'outdent',
 			'|',
 			'imageUpload',
-			'embed',
 			'|',
 			'blockQuote',
 			'insertTable',
