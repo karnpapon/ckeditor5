@@ -31,13 +31,12 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
-// import Embed from 'ckeditor5-embed/src/embed';
-import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor';
+// import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor';
 
 // Simple plugin which loads the data processor.
-function Markdown( editor ) {
-	editor.data.processor = new GFMDataProcessor( editor.editing.view.document );
-}
+// function Markdown( editor ) {
+// 	editor.data.processor = new GFMDataProcessor( editor.editing.view.document );
+// }
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -61,7 +60,6 @@ ClassicEditor.builtinPlugins = [
 	Indent,
 	Link,
 	List,
-	Markdown,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
@@ -85,13 +83,27 @@ ClassicEditor.defaultConfig = {
 			'indent',
 			'outdent',
 			'|',
-			'imageUpload',
-			'|',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
 			'undo',
 			'redo'
+		]
+	},
+	image: {
+		styles: [
+			'full',
+			'side',
+			'alignLeft',
+			'alignRight'
+		],
+		toolbar: [
+			'imageStyle:side',
+			'imageStyle:alignLeft',
+			'imageStyle:full',
+			'imageStyle:alignRight',
+			'|',
+			'imageTextAlternative'
 		]
 	},
 	mediaEmbed: {
@@ -108,23 +120,14 @@ ClassicEditor.defaultConfig = {
 
 					return (
 						'<div class="embed-bandcamp" style="position: relative; width: 500px; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
-							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" ` +
+							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/" ` +
 								'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
-								'frameborder="0" allowtransparency="true" allow="encrypted-media">' +
+								'frameborder="0" allow="encrypted-media">' +
 							'</iframe>' +
 						'</div>'
 					);
 				}
 			}
-		]
-	},
-	image: {
-		toolbar: [
-			'imageTextAlternative',
-			'|',
-			'imageStyle:alignLeft',
-			'imageStyle:full',
-			'imageStyle:alignRight'
 		]
 	},
 	table: {
@@ -134,6 +137,5 @@ ClassicEditor.defaultConfig = {
 			'mergeTableCells'
 		]
 	},
-	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: 'en'
 };
