@@ -119,7 +119,7 @@ ClassicEditor.defaultConfig = {
 					const id = match[ 1 ];
 
 					return (
-						'<div class="embed-bandcamp" style="position: relative; width: 500px; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
+						'<div class="embed-bandcamp" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
 							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/" ` +
 								'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
 								'frameborder="0" allow="encrypted-media">' +
