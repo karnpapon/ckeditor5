@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /**
  * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
@@ -106,8 +107,7 @@ ClassicEditor.defaultConfig = {
 					const id = match[ 1 ];
 
 					return (
-						'<div class="embed-bandcamp" style="position: relative; padding-bottom: 100%; height: 0; padding-top: 80px;">' +
-							// eslint-disable-next-line max-len
+						'<div class="embed-bandcamp" style="position: relative; width: 500px; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
 							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" ` +
 								'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
 								'frameborder="0" allowtransparency="true" allow="encrypted-media">' +

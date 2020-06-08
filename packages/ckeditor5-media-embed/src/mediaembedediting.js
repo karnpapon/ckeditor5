@@ -66,7 +66,7 @@ export default class MediaEmbedEditing extends Plugin {
 						const id = match[ 1 ];
 
 						return (
-							'<div class="embed-spotify" style="position: relative; padding-top: 80px; height: 0; padding-bottom: inherit;">' +
+							'<div class="embed-spotify" style="position: relative;  width: 500px; padding-top: 80px; height: 0; padding-bottom: 30% ;">' +
 								`<iframe src="https://open.spotify.com/embed/${ id }" ` +
 									'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
 									'frameborder="0" allowtransparency="true" allow="encrypted-media">' +
