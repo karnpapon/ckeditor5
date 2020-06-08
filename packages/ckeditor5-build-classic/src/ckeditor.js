@@ -93,30 +93,31 @@ ClassicEditor.defaultConfig = {
 			'redo'
 		]
 	},
-	// mediaEmbed: {
-	// 	extraProviders: [
-	// 		{
-	// 			name: 'spotify',
-	// 			url: [
-	// 				/^open\.spotify\.com\/(artist\/\w+)/,
-	// 				/^open\.spotify\.com\/(album\/\w+)/,
-	// 				/^open\.spotify\.com\/(track\/\w+)/
-	// 			],
-	// 			html: match => {
-	// 				const id = match[ 1 ];
+	mediaEmbed: {
+		extraProviders: [
+			{
+				name: 'bandcamp',
+				url: [
+					/^(\w+)\.bandcamp\.com/,
+					/^(\w+)\.bandcamp\.com\/(album)\/([\w-]+)/,
+					/^(\w+)\.bandcamp\.com\/(track)\/([\w-]+)/
+				],
+				html: match => {
+					const id = match[ 1 ];
 
-	// 				return (
-	// 					'<div className="embed-spotify" style="position: relative; padding-bottom: 100%; height: 0; padding-top: 80px;">' +
-	// 						`<iframe src="https://open.spotify.com/embed/${ id }" ` +
-	// 							'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
-	// 							'frameborder="0" allowtransparency="true" allow="encrypted-media">' +
-	// 						'</iframe>' +
-	// 					'</div>'
-	// 				);
-	// 			}
-	// 		}
-	// 	]
-	// },
+					return (
+						'<div class="embed-bandcamp" style="position: relative; padding-bottom: 100%; height: 0; padding-top: 80px;">' +
+							// eslint-disable-next-line max-len
+							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/transparent=true/" ` +
+								'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
+								'frameborder="0" allowtransparency="true" allow="encrypted-media">' +
+							'</iframe>' +
+						'</div>'
+					);
+				}
+			}
+		]
+	},
 	image: {
 		toolbar: [
 			'imageTextAlternative',
