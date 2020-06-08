@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /**
  * @license Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
@@ -65,7 +66,7 @@ export default class MediaEmbedEditing extends Plugin {
 						const id = match[ 1 ];
 
 						return (
-							'<div id="embed-spotify" style="position: relative; padding-top: 80px; height: 0; padding-bottom: inherit;">' +
+							'<div class="embed-spotify" style="position: relative; padding-top: 80px; height: 0; padding-bottom: inherit;">' +
 								`<iframe src="https://open.spotify.com/embed/${ id }" ` +
 									'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
 									'frameborder="0" allowtransparency="true" allow="encrypted-media">' +
