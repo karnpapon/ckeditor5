@@ -83,6 +83,8 @@ ClassicEditor.defaultConfig = {
 			'indent',
 			'outdent',
 			'|',
+			'ckfinder',
+			'|',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
