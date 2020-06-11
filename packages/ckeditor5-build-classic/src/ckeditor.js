@@ -37,8 +37,10 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 
 import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
-import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
+// import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
 import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
+import { createDropdown } from '@ckeditor/ckeditor5-ui/src/dropdown/utils';
+import MediaFormView from '@ckeditor/ckeditor5-media-embed/src/ui/mediaformview';
 // import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor';
 
 // Simple plugin which loads the data processor.
@@ -51,33 +53,68 @@ class InsertImage extends Plugin {
 		const editor = this.editor;
 
 		editor.ui.componentFactory.add( 'insertImage', locale => {
-			const view = new ButtonView( locale );
+			// const view = new ButtonView( locale );
+			const dropdown = createDropdown( locale );
 
-			view.set( {
-				label: 'Insert image',
-				icon: imageIcon,
-				tooltip: true
-			} );
+			const mediaForm = new MediaFormView( getFormValidators( editor.t ), editor.locale );
 
-			// Callback executed once the image is clicked.
-			view.on( 'execute', () => {
-				// eslint-disable-next-line no-undef
-				// eslint-disable-next-line no-alert
-				const imageUrl = prompt( 'Image URL' );
+			this._setUpDropdown( dropdown, mediaForm, editor );
+			this._setUpForm( dropdown, mediaForm );
 
-				editor.model.change( writer => {
-					const imageElement = writer.createElement( 'image', {
-						src: imageUrl
-					} );
-
-					// Insert the image in the current selection location.
-					editor.model.insertContent( imageElement, editor.model.document.selection );
-				} );
-			} );
-
-			return view;
+			return dropdown;
 		} );
 	}
+	_setUpDropdown( dropdown, form ) {
+		const editor = this.editor;
+		const t = editor.t;
+		const button = dropdown.buttonView;
+		dropdown.panelView.children.add( form );
+
+		button.set( {
+			label: t( 'Insert image' ),
+			icon: imageIcon,
+			tooltip: true
+		} );
+
+		button.on( 'open', () => {
+			form.url = '';
+			form.urlInputView.fieldView.select();
+			form.focus();
+		}, { priority: 'low' } );
+
+		dropdown.on( 'submit', () => {
+			if ( form.isValid() ) {
+				editor.model.change( writer => {
+					const imageElement = writer.createElement( 'image', {
+						src: form.url
+					} );
+					editor.model.insertContent( imageElement, editor.model.document.selection );
+				} );
+				closeUI();
+			}
+		} );
+
+		dropdown.on( 'change:isOpen', () => form.resetFormStatus() );
+		dropdown.on( 'cancel', () => closeUI() );
+
+		function closeUI() {
+			editor.editing.view.focus();
+			dropdown.isOpen = false;
+		}
+	}
+	_setUpForm( dropdown, form ) {
+		form.delegate( 'submit', 'cancel' ).to( dropdown );
+	}
+}
+
+function getFormValidators( t ) {
+	return [
+		form => {
+			if ( !form.url.length ) {
+				return t( 'The URL must not be empty.' );
+			}
+		}
+	];
 }
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -161,6 +198,7 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	mediaEmbed: {
+		previewsInData: true,
 		toolbar: [
 			'mediaStyle:full',
 			'|',
@@ -168,7 +206,7 @@ ClassicEditor.defaultConfig = {
 			'mediaStyle:alignCenter',
 			'mediaStyle:alignRight'
 		],
-		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
+		// styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
 		extraProviders: [
 			{
 				name: 'bandcamp',
