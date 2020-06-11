@@ -61,12 +61,13 @@ export default class MediaEmbedEditing extends Plugin {
 						/^open\.spotify\.com\/(artist\/\w+)/,
 						/^open\.spotify\.com\/(album\/\w+)/,
 						/^open\.spotify\.com\/(track\/\w+)/
+						// /^open\.spotify\.com\/(\w+\/\w+)\/(width=[0-9]{2})/
 					],
 					html: match => {
 						const id = match[ 1 ];
 
 						return (
-							'<div class="embed-spotify" style="position: relative;  width: 100%; padding-top: 80px; height: 0; padding-bottom: 30% ;">' +
+							'<div class="embed-spotify" style="position: relative;  width: 100% ; padding-top: 0; height: 0; padding-bottom: 30% ;">' +
 								`<iframe src="https://open.spotify.com/embed/${ id }" ` +
 									'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
 									'frameborder="0" allowtransparency="true" allow="encrypted-media">' +
@@ -235,7 +236,7 @@ export default class MediaEmbedEditing extends Plugin {
 				view: {
 					name: 'div',
 					attributes: {
-						'data-oembed-url': true
+						'': true
 					}
 				},
 				model: ( viewMedia, modelWriter ) => {

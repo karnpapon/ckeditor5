@@ -28,17 +28,57 @@ import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
+import MediaToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar';
+import MediaStyle from '@kimnagui/ckeditor5-media-align';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+
+import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
+import ButtonView from '@ckeditor/ckeditor5-ui/src/button/buttonview';
+import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 // import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor';
 
 // Simple plugin which loads the data processor.
 // function Markdown( editor ) {
 // 	editor.data.processor = new GFMDataProcessor( editor.editing.view.document );
 // }
+
+class InsertImage extends Plugin {
+	init() {
+		const editor = this.editor;
+
+		editor.ui.componentFactory.add( 'insertImage', locale => {
+			const view = new ButtonView( locale );
+
+			view.set( {
+				label: 'Insert image',
+				icon: imageIcon,
+				tooltip: true
+			} );
+
+			// Callback executed once the image is clicked.
+			view.on( 'execute', () => {
+				// eslint-disable-next-line no-undef
+				// eslint-disable-next-line no-alert
+				const imageUrl = prompt( 'Image URL' );
+
+				editor.model.change( writer => {
+					const imageElement = writer.createElement( 'image', {
+						src: imageUrl
+					} );
+
+					// Insert the image in the current selection location.
+					editor.model.insertContent( imageElement, editor.model.document.selection );
+				} );
+			} );
+
+			return view;
+		} );
+	}
+}
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -65,6 +105,9 @@ ClassicEditor.builtinPlugins = [
 	Link,
 	List,
 	MediaEmbed,
+	MediaToolbar,
+	MediaStyle,
+	InsertImage,
 	Paragraph,
 	PasteFromOffice,
 	Table,
@@ -81,13 +124,15 @@ ClassicEditor.defaultConfig = {
 			'bold',
 			'italic',
 			'link',
+			'underline',
+			'strikethrough',
 			'bulletedList',
 			'numberedList',
 			'|',
 			'indent',
 			'outdent',
 			'|',
-			'ckfinder',
+			'insertImage',
 			'|',
 			'blockQuote',
 			'insertTable',
@@ -116,6 +161,14 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	mediaEmbed: {
+		toolbar: [
+			'mediaStyle:full',
+			'|',
+			'mediaStyle:alignLeft',
+			'mediaStyle:alignCenter',
+			'mediaStyle:alignRight'
+		],
+		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
 		extraProviders: [
 			{
 				name: 'bandcamp',
@@ -128,7 +181,7 @@ ClassicEditor.defaultConfig = {
 					const id = match[ 1 ];
 
 					return (
-						'<div class="embed-bandcamp" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
+						'<div class="embed-bandcamp" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 20px;">' +
 							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/" ` +
 								'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
 								'frameborder="0" allow="encrypted-media">' +
@@ -136,25 +189,25 @@ ClassicEditor.defaultConfig = {
 						'</div>'
 					);
 				}
-			}
-			// {
-			// 	name: 'soundcloud',
-			// 	url: [
-			// 		/^soundcloud.com\/(\w+)\/(\w+)/
-			// 	],
-			// 	html: match => {
-			// 		const id = match[ 1 ];
+			},
+			{
+				name: 'soundcloud',
+				url: [
+					/^soundcloud.com\/(\w+)/
+				],
+				html: match => {
+					const id = match[ 1 ];
 
-			// 		return (
-			// 			'<div class="embed-soundcloud" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
-			// 				`<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/115003565128"${ id }"` +
-			// 					'style="border: 0; width: 100%; height: 166px;"' +
-			// 					'allowfullscreen allow="encrypted-media">' +
-			// 				'</iframe>' +
-			// 			'</div>'
-			// 		);
-			// 	}
-			// }
+					return (
+						'<div class="embed-soundcloud" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
+							`<iframe src="https://w.soundcloud.com/player/?visual=false&url=https://api.soundcloud.com/playlists/${ id }&show_artwork=true"` +
+								'style="border: 0; width: 100%; height: 166px;"' +
+								'allowfullscreen allow="encrypted-media">' +
+							'</iframe>' +
+						'</div>'
+					);
+				}
+			}
 		]
 	},
 	table: {
