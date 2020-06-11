@@ -12,6 +12,8 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
@@ -47,6 +49,8 @@ ClassicEditor.builtinPlugins = [
 	Autoformat,
 	Bold,
 	Italic,
+	Underline,
+	Strikethrough,
 	BlockQuote,
 	CKFinder,
 	EasyImage,
@@ -92,6 +96,9 @@ ClassicEditor.defaultConfig = {
 			'redo'
 		]
 	},
+	ckfinder: {
+		openerMethod: 'popup'
+	},
 	image: {
 		styles: [
 			'full',
@@ -130,6 +137,24 @@ ClassicEditor.defaultConfig = {
 					);
 				}
 			}
+			// {
+			// 	name: 'soundcloud',
+			// 	url: [
+			// 		/^soundcloud.com\/(\w+)\/(\w+)/
+			// 	],
+			// 	html: match => {
+			// 		const id = match[ 1 ];
+
+			// 		return (
+			// 			'<div class="embed-soundcloud" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 80px;">' +
+			// 				`<iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/115003565128"${ id }"` +
+			// 					'style="border: 0; width: 100%; height: 166px;"' +
+			// 					'allowfullscreen allow="encrypted-media">' +
+			// 				'</iframe>' +
+			// 			'</div>'
+			// 		);
+			// 	}
+			// }
 		]
 	},
 	table: {
