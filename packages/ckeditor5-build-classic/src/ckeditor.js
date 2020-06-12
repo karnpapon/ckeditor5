@@ -28,7 +28,7 @@ import Indent from '@ckeditor/ckeditor5-indent/src/indent';
 import Link from '@ckeditor/ckeditor5-link/src/link';
 import List from '@ckeditor/ckeditor5-list/src/list';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed';
-import MediaToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar';
+// import MediaToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar';
 // import MediaStyle from '@kimnagui/ckeditor5-media-align';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
@@ -142,7 +142,7 @@ ClassicEditor.builtinPlugins = [
 	Link,
 	List,
 	MediaEmbed,
-	MediaToolbar,
+	// MediaToolbar,
 	// MediaStyle,
 	InsertImage,
 	Paragraph,
@@ -198,78 +198,15 @@ ClassicEditor.defaultConfig = {
 		]
 	},
 	mediaEmbed: {
-		previewsInData: true,
-		toolbar: [
-			'mediaStyle:full',
-			'|',
-			'mediaStyle:alignLeft',
-			'mediaStyle:alignCenter',
-			'mediaStyle:alignRight'
-		],
+		previewsInData: true
+		// toolbar: [
+		// 	'mediaStyle:full',
+		// 	'|',
+		// 	'mediaStyle:alignLeft',
+		// 	'mediaStyle:alignCenter',
+		// 	'mediaStyle:alignRight'
+		// ],
 		// styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
-		extraProviders: [
-			{
-				name: 'bandcamp',
-				url: [
-					/^(\w+)\.bandcamp\.com/,
-					/^(\w+)\.bandcamp\.com\/(album)\/([\w-]+)/,
-					/^(\w+)\.bandcamp\.com\/(track)\/([\w-]+)/
-				],
-				html: match => {
-					const id = match[ 1 ];
-
-					return (
-						'<div class="embed-bandcamp" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 20px;">' +
-							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/" ` +
-								'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
-								'frameborder="0" allow="encrypted-media">' +
-							'</iframe>' +
-						'</div>'
-					);
-				}
-			},
-			{
-				name: 'soundcloud',
-				url: [
-					/^soundcloud.com\/(tracks)\/(\w+)/,
-					/^soundcloud.com\/(playlists)\/(\w+)/
-				],
-
-				html: match => {
-					const type = match[ 1 ];
-					const id = match[ 2 ];
-
-					return (
-						`<div class="embed-soundcloud" style="position: relative; width: 100%; padding-bottom: ${ type === 'tracks' ? '21.5%' : '40%' } height: 0;">` +
-							`<iframe src="https://w.soundcloud.com/player/?visual=false&url=https://api.soundcloud.com/${ type }/${ id }&show_artwork=true"` +
-								`style="border: 0; width: 100%; height: ${ type === 'tracks' ? '166px' : '300px' };"` +
-								'allowfullscreen allow="encrypted-media">' +
-							'</iframe>' +
-						'</div>'
-					);
-				}
-			},
-			{
-				name: 'facebook',
-				url: [
-					/^facebook.com\/(\w+)\/videos\/([^&$]+)/
-				],
-				html: match => {
-					// const username = match[ 1 ];
-					const id = match[ 2 ];
-					const test = `https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F${ id }%2F`;
-
-					return (
-						'<div class="embed-facebook" style="position: relative; overflow: hidden; width: 100%; padding-bottom: 56.2%; height: 0;">' +
-							`<iframe src="https://www.facebook.com/plugins/video.php?href=${ test }&show_text=0&width=560"` +
-								'style="border: 0; width: 100%; height: 400px;" ' +
-								'allowfullscreen allow="encrypted-media">' +
-							'</iframe>' +
-						'</div>'
-					);
-				}
-			}
-		]
 	},
 	table: {
 		contentToolbar: [
