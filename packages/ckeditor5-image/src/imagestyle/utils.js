@@ -13,6 +13,7 @@ import fullWidthIcon from '@ckeditor/ckeditor5-core/theme/icons/object-full-widt
 import leftIcon from '@ckeditor/ckeditor5-core/theme/icons/object-left.svg';
 import centerIcon from '@ckeditor/ckeditor5-core/theme/icons/object-center.svg';
 import rightIcon from '@ckeditor/ckeditor5-core/theme/icons/object-right.svg';
+import leftSideIcon from '@ckeditor/ckeditor5-core/theme/icons/object-left-side.svg';
 import { attachLinkToDocumentation } from '@ckeditor/ckeditor5-utils/src/ckeditorerror';
 
 /**
@@ -45,7 +46,7 @@ const defaultStyles = {
 	side: {
 		name: 'side',
 		title: 'Side image',
-		icon: rightIcon,
+		icon: leftSideIcon,
 		className: 'image-style-side'
 	},
 
