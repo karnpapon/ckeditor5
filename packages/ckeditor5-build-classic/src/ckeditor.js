@@ -245,6 +245,26 @@ ClassicEditor.defaultConfig = {
 						'</div>'
 					);
 				}
+			},
+			{
+				name: 'facebook',
+				url: [
+					/^facebook.com\/(\w+)\/videos\/([^&$]+)/
+				],
+				html: match => {
+					// const username = match[ 1 ];
+					const id = match[ 2 ];
+					const test = `https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F${ id }%2F`;
+
+					return (
+						'<div class="embed-facebook" style="position: relative; overflow: hidden; width: 100%; padding-bottom: 50%; height: 0;">' +
+							`<iframe src="https://www.facebook.com/plugins/video.php?href=${ test }&show_text=0&width=560"` +
+								'style="border: 0; width: 100%; height: 400px;" ' +
+								'allowfullscreen allow="encrypted-media">' +
+							'</iframe>' +
+						'</div>'
+					);
+				}
 			}
 		]
 	},

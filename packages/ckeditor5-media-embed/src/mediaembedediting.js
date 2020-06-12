@@ -139,11 +139,11 @@ export default class MediaEmbedEditing extends Plugin {
 				{
 					name: 'flickr',
 					url: /^flickr\.com/
-				},
-				{
-					name: 'facebook',
-					url: /^facebook\.com/
 				}
+				// {
+				// 	name: 'facebook',
+				// 	url: /^facebook\.com/
+				// }
 			]
 		} );
 
