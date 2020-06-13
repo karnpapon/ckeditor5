@@ -145,15 +145,18 @@ export default class MediaEmbedEditing extends Plugin {
 				{
 					name: 'soundcloud',
 					url: [
+						/^soundcloud.com\/(\w+)\/([\w-]+)\/([\w-]+)/,
 						/^soundcloud.com\/(tracks)\/(\w+)/,
 						/^soundcloud.com\/(playlists)\/(\w+)/
 					],
 					html: match => {
 						const type = match[ 1 ];
 						const id = match[ 2 ];
+						const k = match[ 3 ];
+
 						return (
 							`<div class="embed-soundcloud" style="position: relative; width: 100%; padding-bottom: ${ type === 'tracks' ? '21.5%' : '40%' } height: 0;">` +
-								`<iframe src="https://w.soundcloud.com/player/?visual=false&url=https://api.soundcloud.com/${ type }/${ id }&show_artwork=true"` +
+								`<iframe src="https://w.soundcloud.com/player/?visual=false&url=https://api.soundcloud.com/${ type }/${ id }&show_artwork=true&secret_token=${ k }"` +
 									`style="border: 0; width: 100%; height: ${ type === 'tracks' ? '166px' : '300px' };"` +
 									'allowfullscreen allow="encrypted-media">' +
 								'</iframe>' +
