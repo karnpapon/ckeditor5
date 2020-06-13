@@ -147,7 +147,8 @@ export default class MediaEmbedEditing extends Plugin {
 					url: [
 						/^soundcloud.com\/(\w+)\/([\w-]+)\/([\w-]+)/,
 						/^soundcloud.com\/(tracks)\/(\w+)/,
-						/^soundcloud.com\/(playlists)\/(\w+)/
+						/^soundcloud.com\/(playlists)\/(\w+)/,
+						/^soundcloud.com\/(users)\/(\w+)/
 					],
 					html: match => {
 						const type = match[ 1 ];
