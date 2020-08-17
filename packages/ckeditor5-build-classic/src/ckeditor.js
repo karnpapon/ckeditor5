@@ -142,176 +142,168 @@ ClassicEditor.builtinPlugins = [
 ];
 
 // Editor configuration.
-// ClassicEditor.defaultConfig = {
-// 	toolbar: {
-// 		items: [
-// 			'heading',
-// 			'|',
-// 			'bold',
-// 			'italic',
-// 			'link',
-// 			'bulletedList',
-// 			'numberedList',
-// 			'imageUpload',
-// 			'embed',
-// 			'blockQuote',
-// 			'undo',
-// 			'redo'
-// 		]
-// 	},
-// 	image: {
-// 		toolbar: [
-// 			'imageStyle:full',
-// 			'imageStyle:side',
-// 			'|',
-// 			'imageTextAlternative'
-// 		]
-// 	},
-// 	embed: {
-// 		allowAttributes: [ 'frameborder', 'allow' ],
-// 		getEmbedAttributes: userSrc => {
-// 			const regex = /<iframe.*?src="(.*?)"/;
-// 			const srcFull = regex.exec( userSrc );
-// 			const src = srcFull[ 1 ];
-// 			const _src = src;
-// 			return {
-// 				src: _src
-// 			};
-// 		},
-// 		enablePlayerInEditor: true
-// 	},
-// 	language: 'en'
-// };
-
-// Editor configuration.
-// ClassicEditor.defaultConfig = {
-// 	toolbar: {
-// 		items: [
-// 			'heading',
-// 			'|',
-// 			'alignment',
-// 			'|',
-// 			'bold',
-// 			'italic',
-// 			'link',
-// 			'underline',
-// 			'strikethrough',
-// 			'bulletedList',
-// 			'numberedList',
-// 			'|',
-// 			'indent',
-// 			'outdent',
-// 			'|',
-// 			'insertImage',
-// 			'mediaEmbed',
-// 			'|',
-// 			'blockQuote',
-// 			'insertTable',
-// 			'undo',
-// 			'redo'
-// 		]
-// 	},
-// 	alignment: {
-// 		options: [ 'left', 'right', 'center', 'justify' ]
-// 	},
-// 	image: {
-// 		styles: [
-// 			'full',
-// 			'side',
-// 			'alignLeft',
-// 			'alignRight'
-// 		],
-// 		toolbar: [
-// 			'imageStyle:side',
-// 			'imageStyle:alignLeft',
-// 			'imageStyle:full',
-// 			'imageStyle:alignRight',
-// 			'|',
-// 			'imageTextAlternative'
-// 		]
-// 	},
-// 	mediaEmbed: {
-// 		previewsInData: true,
-// 		toolbar: [
-// 			'mediaStyle:full',
-// 			'|',
-// 			'mediaStyle:alignLeft',
-// 			'mediaStyle:alignCenter',
-// 			'mediaStyle:alignRight'
-// 		],
-// 		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
-// 		providers: [
-// 			{
-// 				name: 'bandcamp',
-// 				url: [
-// 					/^(\w+)\.bandcamp\.com/,
-// 					/^(\w+)\.bandcamp\.com\/(album)\/([\w-]+)/,
-// 					/^(\w+)\.bandcamp\.com\/(track)\/([\w-]+)/
-// 				],
-// 				html: match => {
-// 					const id = match[ 1 ];
-// 					return (
-// 						'<div class="embed-bandcamp" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 20px;">' +
-// 							`<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${ id }/size=large/bgcol=ffffff/linkcol=333333/artwork=small/" ` +
-// 								'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
-// 								'frameborder="0" allow="encrypted-media">' +
-// 							'</iframe>' +
-// 						'</div>'
-// 					);
-// 				}
-// 			},
-// 			{
-// 				name: 'soundcloud',
-// 				url: [
-// 					/^soundcloud.com\/(\w+)\/([\w-]+)\/([\w-]+)/,
-// 					/^soundcloud.com\/(tracks)\/(\w+)/,
-// 					/^soundcloud.com\/(playlists)\/(\w+)/,
-// 					/^soundcloud.com\/(users)\/(\w+)/
-// 				],
-// 				html: match => {
-// 					const type = match[ 1 ];
-// 					const id = match[ 2 ];
-// 					const k = match[ 3 ];
-
-// 					const token = k !== undefined ? `&secret_token=${ k }` : '';
-
-// 					return (
-// 						`<div class="embed-soundcloud" style="position: relative; width: 100%; padding-bottom: ${ type === 'tracks' ? '21.5%' : '40%' } height: 0;">` +
-// 							`<iframe src="https://w.soundcloud.com/player/?visual=false&url=https://api.soundcloud.com/${ type }/${ id }&show_artwork=true${ token }"` +
-// 								`style="border: 0; width: 100%; height: ${ type === 'tracks' ? '166px' : '300px' };"` +
-// 								'allowfullscreen allow="encrypted-media">' +
-// 							'</iframe>' +
-// 						'</div>'
-// 					);
-// 				}
-// 			},
-// 			{
-// 				name: 'facebook',
-// 				url: [
-// 					/^facebook.com\/(\w+)\/videos\/([^&$]+)/
-// 				],
-// 				html: match => {
-// 					// const username = match[ 1 ];
-// 					const id = match[ 2 ];
-// 					const test = `https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F${ id }%2F`;
-// 					return (
-// 						'<div class="embed-facebook" style="position: relative; overflow: hidden; width: 100%; padding-bottom: 56.2%; height: 0;">' +
-// 							`<iframe src="https://www.facebook.com/plugins/video.php?href=${ test }&show_text=0&width=560"` +
-// 								'style="border: 0; width: 100%; height: 400px;" ' +
-// 								'allowfullscreen allow="encrypted-media">' +
-// 							'</iframe>' +
-// 						'</div>'
-// 					);
-// 				}
-// 			}
-// 		]
-// 	},
-// 	table: {
-// 		contentToolbar: [
-// 			'tableColumn',
-// 			'tableRow',
-// 			'mergeTableCells'
-// 		]
-// 	},
-// 	language: 'en'
-// };
+ClassicEditor.defaultConfig = {
+	toolbar: {
+		items: [
+			'heading',
+			'|',
+			'alignment',
+			'|',
+			'bold',
+			'italic',
+			'link',
+			'embed',
+			'underline',
+			'strikethrough',
+			'bulletedList',
+			'numberedList',
+			'|',
+			'indent',
+			'outdent',
+			'|',
+			'insertImage',
+			'mediaEmbed',
+			'|',
+			'blockQuote',
+			'insertTable',
+			'undo',
+			'redo'
+		]
+	},
+	alignment: {
+		options: [ 'left', 'right', 'center', 'justify' ]
+	},
+	image: {
+		styles: [ 'full', 'side', 'alignLeft', 'alignRight' ],
+		toolbar: [
+			'imageStyle:side',
+			'imageStyle:alignLeft',
+			'imageStyle:full',
+			'imageStyle:alignRight',
+			'|',
+			'imageTextAlternative'
+		]
+	},
+	embed: {
+		allowAttributes: [ 'frameborder', 'allow' ],
+		getEmbedAttributes: userSrc => {
+			const regex = /<iframe.*?src="(.*?)"/;
+			const srcFull = regex.exec( userSrc );
+			const src = srcFull[ 1 ];
+			const _src = src;
+			return {
+				src: _src
+			};
+		},
+		enablePlayerInEditor: true
+	},
+	// mediaEmbed: {
+	//   removeProviders: [
+	//     'youtube',
+	//     'twitter',
+	//     'dailymotion',
+	//     'spotify',
+	//     'vimeo',
+	//     'instagram',
+	//     'googleMaps',
+	//     'flickr',
+	//   ],
+	//   toolbar: [
+	//     'mediaStyle:full',
+	//     '|',
+	//     'mediaStyle:alignLeft',
+	//     'mediaStyle:alignCenter',
+	//     'mediaStyle:alignRight',
+	//   ],
+	//   styles: ['full', 'alignLeft', 'alignCenter', 'alignRight'],
+	//   providers: [
+	//     {
+	//       name: 'iframely previews',
+	//       url: /.+/,
+	//       html: (match) => {
+	//         const url = match[0];
+	//         // prettier-ignore
+	//         var iframeUrl = IFRAME_SRC + '?app=1&api_key=' + IFRAMELY_KEY + '&url=' + encodeURIComponent(url)
+	//         return (
+	//           '<div class="iframely-embed">' +
+	//           '<div class="iframely-responsive">' +
+	//           `<iframe src="${iframeUrl}" ` +
+	//           'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>' +
+	//           '</iframe>' +
+	//           '</div>' +
+	//           '</div>'
+	//         );
+	//       },
+	//     },
+	//   ],
+	//   // providers: [
+	//   //   {
+	//   //     name: 'bandcamp',
+	//   //     url: [
+	//   //       /^bandcamp\.com\/(album)\/([\w-]+)/,
+	//   //       /^bandcamp\.com\/(track)\/([\w-]+)/,
+	//   //     ],
+	//   //     html: (match) => {
+	//   //       const album = match[1];
+	//   //       const album_id = match[2];
+	//   //       return (
+	//   //         '<div class="embed-bandcamp" style="position: relative; width: 100%; padding-bottom: 30%; height: 0; padding-top: 20px;">' +
+	//   //         `<iframe src="https://bandcamp.com/EmbeddedPlayer/album=${album_id}/size=large/bgcol=ffffff/linkcol=333333/artwork=small/" ` +
+	//   //         'style="position: absolute; width: 100%; height: 100%; top: 0; left: 0;" ' +
+	//   //         'frameborder="0" allow="encrypted-media">' +
+	//   //         '</iframe>' +
+	//   //         '</div>'
+	//   //       );
+	//   //     },
+	//   //   },
+	//   //   {
+	//   //     name: 'soundcloud',
+	//   //     url: [
+	//   //       /^soundcloud.com\/(\w+)\/([\w-]+)\/([\w-]+)/,
+	//   //       /^soundcloud.com\/(tracks)\/(\w+)/,
+	//   //       /^soundcloud.com\/(playlists)\/(\w+)/,
+	//   //       /^soundcloud.com\/(users)\/(\w+)/,
+	//   //     ],
+	//   //     html: (match) => {
+	//   //       const type = match[1];
+	//   //       const id = match[2];
+	//   //       const k = match[3];
+	//   //       const token = k !== undefined ? `&secret_token=${k}` : '';
+	//   //       return (
+	//   //         `<div class="embed-soundcloud" style="position: relative; width: 100%; padding-bottom: ${
+	//   //           type === 'tracks' ? '21.5%' : '40%'
+	//   //         } height: 0;">` +
+	//   //         `<iframe src="https://w.soundcloud.com/player/?visual=false&url=https://api.soundcloud.com/${type}/${id}&show_artwork=true${token}"` +
+	//   //         `style="border: 0; width: 100%; height: ${
+	//   //           type === 'tracks' ? '166px' : '300px'
+	//   //         };"` +
+	//   //         'allowfullscreen allow="encrypted-media">' +
+	//   //         '</iframe>' +
+	//   //         '</div>'
+	//   //       );
+	//   //     },
+	//   //   },
+	//   //   {
+	//   //     name: 'facebook',
+	//   //     url: [/^facebook.com\/(\w+)\/videos\/([^&$]+)/],
+	//   //     html: (match) => {
+	//   //       // const username = match[ 1 ];
+	//   //       const id = match[2];
+	//   //       const test = `https%3A%2F%2Fwww.facebook.com%2Ffacebook%2Fvideos%2F${id}%2F`;
+	//   //       return (
+	//   //         '<div class="embed-facebook" style="position: relative; overflow: hidden; width: 100%; padding-bottom: 56.2%; height: 0;">' +
+	//   //         `<iframe src="https://www.facebook.com/plugins/video.php?href=${test}&show_text=0&width=560"` +
+	//   //         'style="border: 0; width: 100%; height: 400px;" ' +
+	//   //         'allowfullscreen allow="encrypted-media">' +
+	//   //         '</iframe>' +
+	//   //         '</div>'
+	//   //       );
+	//   //     },
+	//   //   },
+	//   // ],
+	// },
+	table: {
+		contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
+	},
+	language: 'en'
+};
