@@ -38,6 +38,7 @@ import Plugin from '@ckeditor/ckeditor5-core/src/plugin';
 import imageIcon from '@ckeditor/ckeditor5-core/theme/icons/image.svg';
 import { createDropdown } from '@ckeditor/ckeditor5-ui/src/dropdown/utils';
 import MediaFormView from '@ckeditor/ckeditor5-media-embed/src/ui/mediaformview';
+import Embed from 'ckeditor5-embed/src/embed';
 
 class InsertImage extends Plugin {
 	init() {
@@ -128,6 +129,7 @@ ClassicEditor.builtinPlugins = [
 	Indent,
 	Link,
 	List,
+	Embed,
 	MediaEmbed,
 	MediaToolbar,
 	MediaStyle,
@@ -138,6 +140,48 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation
 ];
+
+// Editor configuration.
+// ClassicEditor.defaultConfig = {
+// 	toolbar: {
+// 		items: [
+// 			'heading',
+// 			'|',
+// 			'bold',
+// 			'italic',
+// 			'link',
+// 			'bulletedList',
+// 			'numberedList',
+// 			'imageUpload',
+// 			'embed',
+// 			'blockQuote',
+// 			'undo',
+// 			'redo'
+// 		]
+// 	},
+// 	image: {
+// 		toolbar: [
+// 			'imageStyle:full',
+// 			'imageStyle:side',
+// 			'|',
+// 			'imageTextAlternative'
+// 		]
+// 	},
+// 	embed: {
+// 		allowAttributes: [ 'frameborder', 'allow' ],
+// 		getEmbedAttributes: userSrc => {
+// 			const regex = /<iframe.*?src="(.*?)"/;
+// 			const srcFull = regex.exec( userSrc );
+// 			const src = srcFull[ 1 ];
+// 			const _src = src;
+// 			return {
+// 				src: _src
+// 			};
+// 		},
+// 		enablePlayerInEditor: true
+// 	},
+// 	language: 'en'
+// };
 
 // Editor configuration.
 // ClassicEditor.defaultConfig = {

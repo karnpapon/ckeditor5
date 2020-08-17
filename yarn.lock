@@ -2924,10 +2924,9 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-ckeditor5-embed@^1.0.7:
+"ckeditor5-embed@https://github.com/Suraj151/ckeditor5-embed.git":
   version "1.0.7"
-  resolved "https://registry.yarnpkg.com/ckeditor5-embed/-/ckeditor5-embed-1.0.7.tgz#7e53dd92574669d1807daa855a3aec21116cbc2a"
-  integrity sha512-8trpm+6+goVjU0uu5zRMAUIUOSnjqFiwCJo88GA7N5Sdc7qa12gQ/9cuHQ1QKkvD46b0HW092yvdeLRLeaZ+gA==
+  resolved "https://github.com/Suraj151/ckeditor5-embed.git#9e58d3f57415e1b1083c8c60385296548ae6a323"
 
 class-utils@^0.3.5:
   version "0.3.6"
