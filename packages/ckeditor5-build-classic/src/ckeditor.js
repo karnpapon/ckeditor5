@@ -191,14 +191,22 @@ ClassicEditor.defaultConfig = {
 			// const srcStyleFull = embedStyle.exec(userSrc);
 			const regex = /<iframe.*?src="(.*?)"/;
 			const srcFull = regex.exec( userSrc );
-			const embedHeight = /<iframe.*?height:(.*?px;)/;
-			const srcHeightFull = embedHeight.exec( userSrc );
+			// const embedHeight = /<iframe.*?height:(.*?px;)/;
+			const embedHeight1 = /<iframe.*?height="(.*?)"/;
+			const embedHeight2 = /<iframe.*?height:(.*?px;)/;
+			let srcHeightFull;
+			if ( embedHeight1.exec( userSrc ) ) {
+				srcHeightFull = embedHeight1.exec( userSrc );
+				srcHeightFull[ 1 ].replace( ' " ', '' );
+			} else if ( embedHeight2.exec( userSrc ) ) {
+				srcHeightFull = embedHeight2.exec( userSrc );
+			}
 			const src = srcFull[ 1 ];
 			const srcHeight = srcHeightFull[ 1 ];
 			const _src = src;
 			const _height = srcHeight;
 			// eslint-disable-next-line no-undef
-			// console.log( '_style_style --> ', _height );
+			console.log( '_style_style --> ', srcHeightFull );
 			return {
 				src: _src,
 				height: _height.replace( ' ', '' )
