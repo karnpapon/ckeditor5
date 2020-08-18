@@ -2924,9 +2924,9 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
-"ckeditor5-embed@https://github.com/Suraj151/ckeditor5-embed.git":
+"ckeditor5-embed@https://github.com/karnpapon/ckeditor5-embed.git":
   version "1.0.7"
-  resolved "https://github.com/Suraj151/ckeditor5-embed.git#9e58d3f57415e1b1083c8c60385296548ae6a323"
+  resolved "https://github.com/karnpapon/ckeditor5-embed.git#567f907699f33a1af545027bb60ef36dd1f80f86"
 
 class-utils@^0.3.5:
   version "0.3.6"

@@ -74,6 +74,6 @@
   "dependencies": {
     "@ckeditor/ckeditor5-markdown-gfm": "^19.0.1",
     "@kimnagui/ckeditor5-media-align": "https://github.com/kimnagui/ckeditor5-media-align.git",
-    "ckeditor5-embed": "https://github.com/Suraj151/ckeditor5-embed.git"
+    "ckeditor5-embed": "https://github.com/karnpapon/ckeditor5-embed.git"
   }
 }
