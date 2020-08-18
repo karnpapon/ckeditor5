@@ -141,7 +141,7 @@ ClassicEditor.builtinPlugins = [
 	TextTransformation
 ];
 
-// // Editor configuration.
+// Editor configuration.
 // ClassicEditor.defaultConfig = {
 // 	toolbar: {
 // 		items: [
@@ -194,22 +194,37 @@ ClassicEditor.builtinPlugins = [
 // 			// const embedHeight = /<iframe.*?height:(.*?px;)/;
 // 			const embedHeight1 = /<iframe.*?height="(.*?)"/;
 // 			const embedHeight2 = /<iframe.*?height:(.*?px;)/;
+
+// 			const embedWidth1 = /<iframe.*?width="(.*?)"/;
+// 			const embedWidth2 = /<iframe.*?width:(.*?px;)/;
+
 // 			let srcHeightFull;
+// 			let srcWidthFull;
+
 // 			if ( embedHeight1.exec( userSrc ) ) {
 // 				srcHeightFull = embedHeight1.exec( userSrc );
 // 				srcHeightFull[ 1 ].replace( ' " ', '' );
 // 			} else if ( embedHeight2.exec( userSrc ) ) {
 // 				srcHeightFull = embedHeight2.exec( userSrc );
 // 			}
+
+// 			if ( embedWidth1.exec( userSrc ) ) {
+// 				srcWidthFull = embedWidth1.exec( userSrc );
+// 				srcWidthFull[ 1 ].replace( ' " ', '' );
+// 			} else if ( embedWidth2.exec( userSrc ) ) {
+// 				srcWidthFull = embedWidth2.exec( userSrc );
+// 			}
 // 			const src = srcFull[ 1 ];
 // 			const srcHeight = srcHeightFull[ 1 ];
+// 			const srcWidth = srcWidthFull[ 1 ];
 // 			const _src = src;
 // 			const _height = srcHeight;
+// 			const _width = srcWidth;
 // 			// eslint-disable-next-line no-undef
-// 			console.log( '_style_style --> ', srcHeightFull );
 // 			return {
 // 				src: _src,
-// 				height: _height.replace( ' ', '' )
+// 				height: _height.replace( ' ', '' ),
+// 				width: _width.replace( ' ', '' )
 // 			};
 // 		},
 // 		enablePlayerInEditor: false
