@@ -144,3 +144,128 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TextTransformation
 ];
+
+// ClassicEditor.defaultConfig = {
+// 	toolbar: {
+// 		items: [
+// 			'heading',
+// 			'|',
+// 			'alignment',
+// 			'|',
+// 			'bold',
+// 			'italic',
+// 			'link',
+// 			'embed',
+// 			'underline',
+// 			'strikethrough',
+// 			'bulletedList',
+// 			'numberedList',
+// 			'|',
+// 			'indent',
+// 			'outdent',
+// 			'|',
+// 			'insertImage',
+// 			'mediaEmbed',
+// 			'|',
+// 			'blockQuote',
+// 			'insertTable',
+// 			'undo',
+// 			'redo'
+// 		]
+// 	},
+// 	alignment: {
+// 		options: [ 'left', 'right', 'center', 'justify' ]
+// 	},
+// 	image: {
+// 		styles: [ 'full', 'side', 'alignLeft', 'alignRight' ],
+// 		toolbar: [
+// 			'imageStyle:side',
+// 			'imageStyle:alignLeft',
+// 			'imageStyle:full',
+// 			'imageStyle:alignRight',
+// 			'|',
+// 			'imageTextAlternative'
+// 		]
+// 	},
+// 	embed: {
+// 		allowAttributes: [ 'frameborder', 'allow', 'width', 'height' ],
+// 		toolbar: [
+// 			'embedStyle:full',
+// 			'|',
+// 			'embedStyle:alignLeft',
+// 			'embedStyle:alignCenter',
+// 			'embedStyle:alignRight'
+// 		],
+// 		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
+// 		getEmbedAttributes: userSrc => {
+// 			const regex = /<iframe.*?src="(.*?)"/;
+// 			const srcFull = regex.exec( userSrc );
+// 			const embedHeight1 = /<iframe.*?height="(.*?)"/;
+// 			const embedHeight2 = /<iframe.*?height:(.*?;)/;
+
+// 			const embedWidth1 = /<iframe.*?width="(.*?)"/;
+// 			const embedWidth2 = /<iframe.*?width:(.*?;)/;
+
+// 			let srcHeightFull;
+// 			let srcWidthFull;
+
+// 			if ( embedHeight1.exec( userSrc ) ) {
+// 				srcHeightFull = embedHeight1.exec( userSrc );
+// 				srcHeightFull[ 1 ].replace( ' " ', '' );
+// 			} else if ( embedHeight2.exec( userSrc ) ) {
+// 				srcHeightFull = embedHeight2.exec( userSrc );
+// 			}
+
+// 			if ( embedWidth1.exec( userSrc ) ) {
+// 				srcWidthFull = embedWidth1.exec( userSrc );
+// 				srcWidthFull[ 1 ].replace( ' " ', '' );
+// 			} else if ( embedWidth2.exec( userSrc ) ) {
+// 				srcWidthFull = embedWidth2.exec( userSrc );
+// 			}
+// 			const src = srcFull[ 1 ];
+// 			const srcHeight = srcHeightFull[ 1 ];
+// 			const srcWidth = srcWidthFull[ 1 ];
+// 			const _src = src;
+// 			const _height = srcHeight;
+// 			const _width = srcWidth;
+// 			return {
+// 				src: _src,
+// 				height: _height.replace( ' ', '' ),
+// 				width: _width.replace( ' ', '' )
+// 			};
+// 		},
+// 		enablePlayerInEditor: false
+// 	},
+// 	mediaEmbed: {
+// 		toolbar: [
+// 			'mediaStyle:full',
+// 			'|',
+// 			'mediaStyle:alignLeft',
+// 			'mediaStyle:alignCenter',
+// 			'mediaStyle:alignRight'
+// 		],
+// 		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ]
+// 		// providers: [ {
+// 		// 	name: 'iframely previews',
+// 		// 	url: /.+/,
+// 		// 	html: match => {
+// 		// 		const url = match[ 0 ];
+// 		// 		// prettier-ignore
+// 		// 		var iframeUrl = IFRAME_SRC + '?app=1&api_key=' + IFRAMELY_KEY + '&url=' + encodeURIComponent(url)
+// 		// 		return (
+// 		// 			'<div class="iframely-embed">' +
+// 		// 			'<div class="iframely-responsive">' +
+// 		// 			`<iframe src="${iframeUrl}" ` +
+// 		// 			'frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>' +
+// 		// 			'</iframe>' +
+// 		// 			'</div>' +
+// 		// 			'</div>'
+// 		// 		);
+// 		// 	},
+// 		// } ]
+// 	},
+// 	table: {
+// 		contentToolbar: [ 'tableColumn', 'tableRow', 'mergeTableCells' ]
+// 	},
+// 	language: 'en'
+// };
