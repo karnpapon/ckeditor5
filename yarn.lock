@@ -1089,9 +1089,9 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.2.tgz#26520bf09abe4a5644cd5414e37125a8954241dd"
   integrity sha512-tsAQNx32a8CoFhjhijUIhI4kccIAgmGhy8LZMZgGfmXcpMbPRUqn5LWmgRttILi6yeGmBJd2xsPkFMs0PzgPCw==
 
-"@kimnagui/ckeditor5-media-align@https://github.com/kimnagui/ckeditor5-media-align.git":
+"@kimnagui/ckeditor5-media-align@https://github.com/karnpapon/ckeditor5-media-align.git":
   version "1.0.5"
-  resolved "https://github.com/kimnagui/ckeditor5-media-align.git#5f0d4d44ff0737c7ffb2c17749a2351776154df6"
+  resolved "https://github.com/karnpapon/ckeditor5-media-align.git#d5feb04cf07c1301032d2238595bffc216ac4cdf"
   dependencies:
     "@ckeditor/ckeditor5-clipboard" "^19.0.0"
     "@ckeditor/ckeditor5-core" "^19.0.0"
