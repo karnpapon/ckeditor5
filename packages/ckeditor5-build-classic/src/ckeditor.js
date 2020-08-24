@@ -245,6 +245,7 @@ ClassicEditor.defaultConfig = {
 			'mediaStyle:alignRight'
 		],
 		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
+		previewsInData: true,
 		extraProviders: [
 			{
 				name: 'facebook',
