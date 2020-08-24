@@ -190,11 +190,11 @@ ClassicEditor.builtinPlugins = [
 // 	embed: {
 // 		allowAttributes: [ 'frameborder', 'allow', 'width', 'height' ],
 // 		toolbar: [
-// 			'embedStyle:full',
+// 			'embedstyle:full',
 // 			'|',
-// 			'embedStyle:alignLeft',
-// 			'embedStyle:alignCenter',
-// 			'embedStyle:alignRight'
+// 			'embedstyle:alignLeft',
+// 			'embedstyle:alignCenter',
+// 			'embedstyle:alignRight'
 // 		],
 // 		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
 // 		getEmbedAttributes: userSrc => {
