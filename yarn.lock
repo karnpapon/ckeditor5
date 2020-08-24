@@ -2926,7 +2926,7 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
 
 "ckeditor5-embed@https://github.com/karnpapon/ckeditor5-embed.git":
   version "1.0.7"
-  resolved "https://github.com/karnpapon/ckeditor5-embed.git#69a3ab35be205e24191ddd0d35afc270c3eb88f3"
+  resolved "https://github.com/karnpapon/ckeditor5-embed.git#2794b771675c0443d9ceaa5e31c95f68721d855c"
 
 class-utils@^0.3.5:
   version "0.3.6"

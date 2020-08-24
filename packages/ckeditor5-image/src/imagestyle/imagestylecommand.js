@@ -58,6 +58,9 @@ export default class ImageStyleCommand extends Command {
 
 		this.isEnabled = isImage( element );
 
+		// eslint-disable-next-line no-undef
+		console.log( 'image element refresh ---> ', element );
+
 		if ( !element ) {
 			this.value = false;
 		} else if ( element.hasAttribute( 'imageStyle' ) ) {
