@@ -167,7 +167,7 @@ export default class MediaEmbedEditing extends Plugin {
 			isObject: true,
 			isBlock: true,
 			allowWhere: '$block',
-			allowAttributes: [ 'url' ]
+			allowAttributes: [ 'url', 'mediastyle' ]
 		} );
 
 		// Model -> Data
