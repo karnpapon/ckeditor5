@@ -238,11 +238,11 @@ ClassicEditor.builtinPlugins = [
 // 	},
 // 	mediaEmbed: {
 // 		toolbar: [
-// 			'mediaStyle:full',
+// 			'mediastyle:full',
 // 			'|',
-// 			'mediaStyle:alignLeft',
-// 			'mediaStyle:alignCenter',
-// 			'mediaStyle:alignRight'
+// 			'mediastyle:alignLeft',
+// 			'mediastyle:alignCenter',
+// 			'mediastyle:alignRight'
 // 		],
 // 		styles: [ 'full', 'alignLeft', 'alignCenter', 'alignRight' ],
 // 		previewsInData: true,

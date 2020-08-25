@@ -1091,7 +1091,7 @@
 
 "@kimnagui/ckeditor5-media-align@https://github.com/karnpapon/ckeditor5-media-align.git":
   version "1.0.5"
-  resolved "https://github.com/karnpapon/ckeditor5-media-align.git#d5feb04cf07c1301032d2238595bffc216ac4cdf"
+  resolved "https://github.com/karnpapon/ckeditor5-media-align.git#5afb888c00256307e345ef611f87d1dceeebb8db"
   dependencies:
     "@ckeditor/ckeditor5-clipboard" "^19.0.0"
     "@ckeditor/ckeditor5-core" "^19.0.0"
